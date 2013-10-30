@@ -31,6 +31,7 @@ void function (win) {
         },
 
         reporter: function () {
+            var record = this.record
             addEvent(win, 'load', function () {
                 var script = document.getElementById('__XPerformance')
                 if (!script) {
@@ -41,7 +42,7 @@ void function (win) {
                     head.insertBefore(script, head.firstChild)
                 }
 
-                script.innerHTML = JSON.stringify(this.record)
+                script.innerHTML = JSON.stringify(record)
             })
 
             return this
